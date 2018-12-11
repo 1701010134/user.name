@@ -22,6 +22,7 @@ public class AccountController{
 	public String selectAccounts(@RequestParam(required=false,defaultValue="1")int page,
 			@RequestParam(required=false,defaultValue="5")int rows,
 			Account account,Model model){
+		System.out.println("id="+account.getId()+"balance="+account.getBalance()+account.toString());
 		PageInfo<Account> pageInfo = accountService.getPage(account,page,rows);
 		model.addAttribute("queryParam",account);
 		model.addAttribute("pageInfo",pageInfo);

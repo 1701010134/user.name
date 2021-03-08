@@ -6,7 +6,8 @@ import bank.model.Account;
 
 public interface AccountService {
 	//根据account中的查询条件得到查询结果
-List<Account> selectAccounts(Account account);
+List<Account> selectAccounts();
+
 //根据account中的查询条件得到查询结果制定分页的内容：即第pageIndex页，每页显示pageSize行的第一个页面内容
 PageInfo<Account> getPage(Account account,Integer pageIndex,Integer pageSize);
 
@@ -19,4 +20,5 @@ Account getAccountByid(int id);
 int updateAccount(Account account);
 
 int deleteAccountById(int id);
+
 }

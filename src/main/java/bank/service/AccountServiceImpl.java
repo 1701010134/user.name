@@ -16,16 +16,19 @@ public class AccountServiceImpl implements AccountService{
 	private AccountDao accountDao;
     
     //根据account中的查询条件得到查询结果
-	public List<Account> selectAccounts(Account account) {
+	public List<Account> selectAccounts() {
 		// TODO Auto-generated method stub
-		return accountDao.selectAccounts(account);
+		return accountDao.selectAccounts();
 	}
-	
+	/*public List<Account> selectAccounts2(Account account){
+		return accountDao.selectAccounts2(account);
+		
+	}*/
 	//根据account中的查询条件得到查询结果制定分页的内容：即第pageIndex页，每页显示pageSize行的第一个页面内容
 	public PageInfo<Account> getPage(Account account, Integer pageIndex, Integer pageSize) {
 		// TODO Auto-generated method stub
 		PageHelper.startPage(pageIndex,pageSize);
-		List<Account> values=accountDao.selectAccounts(account);
+		List<Account> values=accountDao.selectAccounts();
 		PageInfo<Account> page=new PageInfo<Account>(values);
 		return page;
 	}
@@ -54,5 +57,6 @@ public class AccountServiceImpl implements AccountService{
 		// TODO Auto-generated method stub
 		return accountDao.deleteAccountById(id);
 	}
+
 
 }

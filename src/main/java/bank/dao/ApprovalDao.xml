@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bank.dao.ApprovalDao">
+  <sql id="selectApprovalWhere">
+  <where>
+    <if test="no2!=null">
+      no2 like "%${no2}%"
+    </if>
+    <if test="name2!=null">
+    and name2 like "%${name2}%"
+    </if>
+  </where>
+</sql>
+
+  <select id="selectApprovalAccounts" parameterType="bank.model.Approval" resultType="bank.model.Approval">
+    select * from approval
+    <include refid="selectApprovalWhere"/>
+  </select>
+   <insert id="insertApprovalAccount" parameterType="bank.model.Approval">
+  insert into approval (no2,name2,loan,status) values (#{no2},#{name2},#{loan},#{status})
+  </insert>
+  
+  <select id="getApprovalAccountByNo" parameterType="java.lang.String" resultType="bank.model.Approval">
+  select*from approval where no2=#{no2}
+  </select>
+  
+  <select id="getApprovalAccountByid" parameterType="java.lang.Integer" resultType="bank.model.Approval">
+  select * from approval where id2=#{id2}
+  </select>
+  
+  <update id="updateApprovalAccount" parameterType="bank.model.Approval">
+  update approval set no2=#{no2},name2=#{name2},loan=#{loan},status=#{status} where id2=#{id2}
+  </update>
+  
+  <delete id="deleteApprovalAccountById" parameterType="java.lang.Integer">
+  delete from approval where id2=#{id2}
+  </delete>
+  <select id="getApprovalAccountstatus" parameterType="Integer" resultType="Integer">
+  select status from approval
+  </select>
+  <update id="setApprovalAccountstatus" parameterType="Integer">
+  update approval set status=${status} where id2=${id2}
+  </update>
+  <select id="selectApprovalAccountstatus" parameterType="Integer" resultType="Integer">
+  select status from approval where id2=${id2}
+  </select>
+</mapper>

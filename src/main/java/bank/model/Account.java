@@ -1,5 +1,8 @@
 package bank.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Account {
 	private int id;
 	private String no;

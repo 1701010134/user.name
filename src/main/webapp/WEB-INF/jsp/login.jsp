@@ -15,9 +15,9 @@
      <h2 class="form-signin-heading">个人银行后台系统登录</h2>
      <span style="color:red" id="message">${msg}</span>
      <label for="no" class="sr-only">用户账号</label>
-     <input type="text" id="no" name="no" class="form-control" placeholder="用户账号" required autofocus><br>
+     <input type="text" name="no" class="form-control" placeholder="用户账号" required="required" autofocus><br>
      <label for="password" class="sr-only">用户密码</label>
-     <input type="password" id="password" name="password" class="form-control" placeholder="用户密码" required>
+     <input type="password" id="password" name="password" class="form-control" placeholder="用户密码" required/>
    <div class="checkbox">
      <label><input type="checkbox" value="remember-me" id="remember-me">记住我</label>
   </div>
@@ -25,13 +25,13 @@
   </form>
   </div>
   
-  <script src="${pageContext.request.contextPath }/js/jquery-3.3.1.js"></script>
-  <script src="${pageContext.request.contextPath }/js/jquery.cookie.js"></script>
-  <script src="${pageContext.request.contextPath }/js/bootstrap.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
+  <script src="${pageContext.request.contextPath}/js/jquery.cookie.js"></script>
+  <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
   
   <script>
   $(document).ready(function(){
-	  if($.cookie('passwprd')!=null){
+	  if($.cookie('password')!=null){
 		  $("#password").val($.cookie("password"));
 	  }
 	  if($.cookie('no')!=null){

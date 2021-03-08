@@ -19,12 +19,17 @@
     <include refid="selectAccountsWhere"/>
   </select>
   
+<select id="selectAccounts2" parameterType="bank.model.Account" resultType="bank.model.Account">
+    select * from account
+</select>
+
+  
   <insert id="insertAccount" parameterType="bank.model.Account">
   insert into account (no,name,balance) values (#{no},#{name},#{balance})
   </insert>
   
   <select id="getAccountByNo" parameterType="java.lang.String" resultType="bank.model.Account">
-  select*from account where no=#{no}
+  select * from account where no=#{no}
   </select>
   
   <select id="getAccountByid" parameterType="java.lang.Integer" resultType="bank.model.Account">
